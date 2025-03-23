@@ -111,7 +111,7 @@ function SignUpForm() {
                         </FormItem>
                     )}
                 />
-                <Button type='submit' disabled={isPending} className='w-full' variant={"netural"}>
+                <Button type='submit' disabled={isPending} className='w-full' variant={"success"}>
                     {isPending && <Loader2 className='animate-spin' />}
                     Create an account
                 </Button>

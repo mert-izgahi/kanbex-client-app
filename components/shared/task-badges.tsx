@@ -4,34 +4,34 @@ import { cn } from "@/lib/utils"
 
 const badgeProps: Record<TaskStatus, { color: string, label: string }> = {
     [TaskStatus.TODO]: {
-        color: "bg-red-500",
+        color: "bg-destructive",
         label: "To Do"
     },
     [TaskStatus.IN_PROGRESS]: {
-        color: "bg-yellow-500",
+        color: "bg-warning",
         label: "In Progress"
     },
     [TaskStatus.DONE]: {
-        color: "bg-green-500",
+        color: "bg-success",
         label: "Done"
     },
     [TaskStatus.IN_REVIEW]: {
-        color: "bg-blue-500",
+        color: "bg-netural",
         label: "In Review"
     },
 }
 
 const priorityProps: Record<TaskPriority, { color: string, label: string }> = {
     [TaskPriority.LOW]: {
-        color: "bg-green-500",
+        color: "bg-warning",
         label: "Low"
     },
     [TaskPriority.MEDIUM]: {
-        color: "bg-yellow-500",
+        color: "bg-info",
         label: "Medium"
     },
     [TaskPriority.HIGH]: {
-        color: "bg-red-500",
+        color: "bg-destructive",
         label: "High"
     }
 }

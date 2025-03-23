@@ -12,7 +12,7 @@ function GoggleAuthButton() {
     <Button onClick={async () => {
       await signInWithGoogleAction();
       window.location.assign(DEFAULT_REDIRECT);
-    }}>
+    }} variant={"warning"}>
       <IoLogoGoogle />
       <span>Continue with Google</span>
     </Button>

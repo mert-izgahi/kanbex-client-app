@@ -15,7 +15,7 @@ function page() {
         <span className='w-20 text-center text-sm'>Or</span>
         <Separator className='flex-1' />
       </div>
-      <Button asChild>
+      <Button asChild variant={"secondary"}>
         <Link href="/sign-up">Create an account</Link>
       </Button>
       <GoogleAuthButton />

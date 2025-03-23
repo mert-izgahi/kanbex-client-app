@@ -11,7 +11,7 @@ function GithubAuthButton() {
     <Button onClick={async() => {
       await signInWithGithubAction();
       window.location.assign(DEFAULT_REDIRECT);
-    }}>
+    }} variant={"warning"}>
       <IoLogoGithub />
       <span>Continue with Github</span>
     </Button>
