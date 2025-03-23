@@ -5,7 +5,7 @@ import Link from 'next/link'
 
 function layout({ children }: PropsWithChildren) {
     return (
-        <Container className='flex flex-col gap-4 bg-background rounded-sm border border-border py-12 h-[calc(100vh-200px)]'>
+        <Container className='flex flex-col gap-4 bg-background rounded-sm border border-border py-12'>
             <AuthHeader />
             <div className="flex-1 flex justify-center">
                 <div className="max-w-md w-full">
