@@ -4,27 +4,30 @@ import { SignInSchema } from "@/lib/zod";
 import { auth, DEFAULT_REDIRECT, signIn, signOut } from "@/lib/auth";
 import { IAccount } from "@/lib/types";
 import { redirect } from "next/navigation";
-export const signInAction = async (args: SignInSchema) => {
+export const signInAction = async (args: SignInSchema, redirectTo: string) => {
   try {
+    console.log(args);
+
     await signIn("credentials", {
       ...args,
-      redirect: false,
+      redirect: true,
+      redirectTo: redirectTo,
     });
   } catch (error) {
     throw new Error("Invalid credentials");
   }
 };
 
-export const signInWithGoogleAction = async () => {
+export const signInWithGoogleAction = async (redirectTo: string) => {
   await signIn("google", {
     redirect: true,
-    redirectTo: DEFAULT_REDIRECT,
+    redirectTo: redirectTo,
   });
 };
 
-export const signInWithGithubAction = async () => {
+export const signInWithGithubAction = async (redirectTo: string) => {
   await signIn("github", {
-    redirectTo: DEFAULT_REDIRECT,
+    redirectTo: redirectTo,
   });
 };
 
@@ -40,7 +43,7 @@ export const getAccessTokenAction = async () => {
     const session = await auth();
     const user = session?.user as IAccount;
     const accessToken = user?.accessToken;
-    if(!accessToken) return redirect('/sign-in')
+    if (!accessToken) return redirect("/sign-in");
     return accessToken;
   } catch (error) {
     return null;

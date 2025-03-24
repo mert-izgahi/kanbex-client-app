@@ -7,9 +7,11 @@ import React from 'react'
 import { IoLogoGithub } from "react-icons/io5";
 
 function GithubAuthButton() {
+  const redirectTo = window.location.href + "/workspaces"
   return (
     <Button onClick={async() => {
-      await signInWithGithubAction();
+
+      await signInWithGithubAction(redirectTo);
       window.location.assign(DEFAULT_REDIRECT);
     }} variant={"warning"}>
       <IoLogoGithub />

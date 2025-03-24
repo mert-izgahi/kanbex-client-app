@@ -7,10 +7,10 @@ import React, { useEffect, useState } from 'react'
 import { IoLogoGoogle } from "react-icons/io5";
 
 function GoggleAuthButton() {
-
+  const redirectTo = window.location.href + "/workspaces"
   return (
     <Button onClick={async () => {
-      await signInWithGoogleAction();
+      await signInWithGoogleAction(redirectTo);
       window.location.assign(DEFAULT_REDIRECT);
     }} variant={"warning"}>
       <IoLogoGoogle />

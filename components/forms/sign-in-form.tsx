@@ -20,7 +20,8 @@ function SignInForm() {
   const { mutate, isPending } = useMutation({
     mutationKey: ["sign-in"],
     mutationFn: async (args: SignInSchema) => {
-      await signInAction(args);
+      const redirectTo = window.location.href + "/workspaces"
+      await signInAction(args,redirectTo);
     },
     onSuccess: (data) => {
       toast.success("Sign in successfully");
