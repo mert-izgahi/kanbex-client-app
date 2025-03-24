@@ -21,7 +21,8 @@ function SignInForm() {
     mutationKey: ["sign-in"],
     mutationFn: async (args: SignInSchema) => {
       const redirectTo = window.location.href + "/workspaces"
-      await signInAction(args,redirectTo);
+      await signInAction(args);
+      window.location.assign(redirectTo);
     },
     onSuccess: (data) => {
       toast.success("Sign in successfully");

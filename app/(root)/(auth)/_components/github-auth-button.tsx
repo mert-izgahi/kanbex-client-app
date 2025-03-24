@@ -9,7 +9,6 @@ function GithubAuthButton() {
   const redirectTo = window.location.href + "/workspaces"
   return (
     <Button onClick={async() => {
-
       await signInWithGithubAction(redirectTo);
       window.location.assign(redirectTo);
     }} variant={"warning"}>

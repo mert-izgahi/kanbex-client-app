@@ -1,27 +1,23 @@
 ﻿"use server";
 
 import { SignInSchema } from "@/lib/zod";
-import { auth, DEFAULT_REDIRECT, signIn, signOut } from "@/lib/auth";
+import { auth,  signIn, signOut } from "@/lib/auth";
 import { IAccount } from "@/lib/types";
 import { redirect } from "next/navigation";
-export const signInAction = async (args: SignInSchema, redirectTo: string) => {
+export const signInAction = async (args: SignInSchema) => {
   try {
-    console.log(args);
-
     await signIn("credentials", {
       ...args,
       redirect: true,
-      redirectTo: redirectTo,
     });
   } catch (error) {
     throw new Error("Invalid credentials");
   }
 };
 
-export const signInWithGoogleAction = async (redirectTo: string) => {
+export const signInWithGoogleAction = async () => {
   await signIn("google", {
     redirect: true,
-    redirectTo: redirectTo,
   });
 };
 

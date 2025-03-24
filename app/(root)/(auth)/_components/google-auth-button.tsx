@@ -10,7 +10,7 @@ function GoggleAuthButton() {
   const redirectTo = window.location.href + "/workspaces"
   return (
     <Button onClick={async () => {
-      await signInWithGoogleAction(redirectTo);
+      await signInWithGoogleAction();
       window.location.assign(redirectTo);
     }} variant={"warning"}>
       <IoLogoGoogle />
