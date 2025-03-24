@@ -11,7 +11,7 @@ function GoggleAuthButton() {
   return (
     <Button onClick={async () => {
       await signInWithGoogleAction(redirectTo);
-      window.location.assign(DEFAULT_REDIRECT);
+      window.location.assign(redirectTo);
     }} variant={"warning"}>
       <IoLogoGoogle />
       <span>Continue with Google</span>
