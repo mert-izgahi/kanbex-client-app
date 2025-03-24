@@ -17,13 +17,13 @@ export const signInAction = async (args: SignInSchema) => {
 
 export const signInWithGoogleAction = async () => {
   await signIn("google", {
-    redirect: true,
+    redirect: false,
   });
 };
 
 export const signInWithGithubAction = async (redirectTo: string) => {
   await signIn("github", {
-    redirectTo: redirectTo,
+    redirect:false
   });
 };
 
