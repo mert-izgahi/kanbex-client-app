@@ -2,8 +2,19 @@
 import React, { PropsWithChildren } from 'react'
 import AuthHeader from './_components/auth-header'
 import Link from 'next/link'
+import { auth } from '@/lib/auth'
+import { IAccount } from '@/lib/types'
+import { redirect } from 'next/navigation'
 
-function layout({ children }: PropsWithChildren) {
+async function layout({ children }: PropsWithChildren) {
+    const session = await auth();
+    const user = session?.user as IAccount;
+
+    const accessToken = user?.accessToken;
+    if (accessToken) {
+        return redirect(process.env.NEXT_PUBLIC_RIDRECT_AUTH_URL!);
+    }
+    
     return (
         <Container className='flex flex-col gap-4 bg-background rounded-sm border border-border py-12 overflow-y-auto'>
             <AuthHeader />

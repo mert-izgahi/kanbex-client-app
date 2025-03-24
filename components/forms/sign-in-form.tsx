@@ -20,9 +20,8 @@ function SignInForm() {
   const { mutate, isPending } = useMutation({
     mutationKey: ["sign-in"],
     mutationFn: async (args: SignInSchema) => {
-      const redirectTo = window.location.href + "/workspaces"
       await signInAction(args);
-      window.location.assign(redirectTo);
+      window.location.assign(process.env.NEXT_PUBLIC_RIDRECT_AUTH_URL!);
     },
     onSuccess: (data) => {
       toast.success("Sign in successfully");

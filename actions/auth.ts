@@ -1,14 +1,14 @@
 ﻿"use server";
 
 import { SignInSchema } from "@/lib/zod";
-import { auth,  signIn, signOut } from "@/lib/auth";
+import { auth, signIn, signOut } from "@/lib/auth";
 import { IAccount } from "@/lib/types";
 import { redirect } from "next/navigation";
 export const signInAction = async (args: SignInSchema) => {
   try {
     await signIn("credentials", {
       ...args,
-      redirect: true,
+      redirect: false,
     });
   } catch (error) {
     throw new Error("Invalid credentials");
@@ -17,13 +17,15 @@ export const signInAction = async (args: SignInSchema) => {
 
 export const signInWithGoogleAction = async () => {
   await signIn("google", {
-    redirect: false,
+    redirect: true,
+    redirectTo: process.env.NEXT_PUBLIC_RIDRECT_AUTH_URL,
   });
 };
 
-export const signInWithGithubAction = async (redirectTo: string) => {
+export const signInWithGithubAction = async () => {
   await signIn("github", {
-    redirect:false
+    redirect: true,
+    redirectTo: process.env.NEXT_PUBLIC_RIDRECT_AUTH_URL,
   });
 };
 

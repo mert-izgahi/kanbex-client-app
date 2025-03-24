@@ -21,7 +21,7 @@ export const authConfig: NextAuthConfig = {
       if (account && profile) {
         if (account.provider === "google") {
           const response = await axios.post(
-            `https://kanbex-api-services.onrender.com/api/callback`,
+            `${process.env.NEXT_PUBLIC_API_URL}/api/callback`,
             {
               email: profile.email,
               firstName: profile.given_name,
@@ -36,7 +36,7 @@ export const authConfig: NextAuthConfig = {
 
         if (account.provider === "github") {
           const response = await axios.post(
-            `https://kanbex-api-services.onrender.com/api/callback`,
+            `${process.env.NEXT_PUBLIC_API_URL}/api/callback`,
             {
               email: profile.email,
               firstName: profile.name,
@@ -57,7 +57,7 @@ export const authConfig: NextAuthConfig = {
     async session({ session, token }) {
       // Check if the user is exist
       const response = await axios.get(
-        `https://kanbex-api-services.onrender.com/api/get-me`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/get-me`,
         {
           headers: {
             Authorization: `Bearer ${(token?.user as any)?.accessToken}`,
@@ -113,7 +113,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
         try {
           const response = await axios.post(
-            `https://kanbex-api-services.onrender.com/api/sign-in`,
+            `${process.env.NEXT_PUBLIC_API_URL}/api/sign-in`,
             {
               email,
               password,

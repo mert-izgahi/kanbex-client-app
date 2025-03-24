@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: "Kanban board app is a simple way to manage tasks and projects.",
 };
 
-// export const runtime = "edge";
+// export const runtime = "nodejs";
 
 export default async function RootLayout({
   children,
