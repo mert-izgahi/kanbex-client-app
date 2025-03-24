@@ -154,9 +154,6 @@ function TaskForm({ projectId, workspaceId, mode, taskId }: Props) {
         <Form {...form}>
 
             <form onSubmit={form.handleSubmit(onSubmit)} className='flex flex-col space-y-6'>
-                <pre>
-                    {JSON.stringify(form.formState.errors, null, 2)}
-                </pre>
                 <FormField
                     control={form.control}
                     name="name"
