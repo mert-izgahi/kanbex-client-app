@@ -22,8 +22,8 @@ async function page({ params }: PageProps) {
   if (!workspace) return redirect('/workspaces');
   return (
     <div className='w-full flex flex-row h-[calc(100vh-64px)]'>
-      <div className="flex flex-col xl:flex-row gap-0 md:w-3/4 w-full">
-        <div className={cn("w-full flex flex-col h-full overflow-y-auto gap-6  p-6",
+      <div className="flex flex-col xl:flex-row gap-0 md:w-1/4 w-full">
+        <div className={cn("w-full flex flex-col h-full overflow-y-auto gap-6 p-6",
           task.project.color ? `bg-${task.project.color}-500` : 'bg-background'
         )}>
           <div className='bg-background py-4 px-6 rounded-sm border border-border'>
@@ -34,8 +34,8 @@ async function page({ params }: PageProps) {
           </div>
         </div>
       </div>
-      <div className="w-full md:w-1/4">
-        <div className='bg-background py-4 px-6 rounded-none border-l border-l-border h-full'>
+      <div className="w-full md:w-3/4">
+        <div className='bg-background rounded-none border-l border-l-border h-full'>
           <Comments task={task} />
         </div>
       </div>

@@ -35,6 +35,9 @@ async function page() {
   if (workspaces.length > 0) {
     const firstWorkspace = workspaces[0];
     const workspace = await getWorkspaceAction({ accessToken, workspaceId: firstWorkspace._id });
+
+    
+
     if (workspace) {
       return redirect(`/workspaces/${workspace._id}`);
     }

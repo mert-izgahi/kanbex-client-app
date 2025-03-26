@@ -15,6 +15,7 @@ import { useSession } from 'next-auth/react';
 import { IAccount, ITask } from '@/lib/types';
 import { MediaType } from '@/lib/enums';
 import CommentImageInput from './comment-image-input';
+import { Textarea } from '@/components/ui/textarea';
 
 interface CommentFormProps {
     task: ITask
@@ -72,34 +73,36 @@ function CommentForm({ task }: CommentFormProps) {
     console.log(task);
     return (
         <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-row items-center gap-2 w-full">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex flex-col w-full gap-4">
                 <FormField
                     control={form.control}
                     name="content"
                     render={({ field }) => (
                         <FormItem className='flex-1'>
                             <FormControl className='w-full'>
-                                <Input {...field} placeholder="Write a comment" />
+                                <Textarea className='resize-none' rows={4} {...field} placeholder="Write a comment" />
                             </FormControl>
                             <FormMessage />
                         </FormItem>
                     )}
                 />
-                <FormField
-                    control={form.control}
-                    name="media"
-                    render={({ field }) => (
-                        <FormItem>
-                            <FormControl>
-                                <CommentImageInput value={field.value} onChange={field.onChange} />
-                            </FormControl>
-                            <FormMessage />
-                        </FormItem>
-                    )}
-                />
-                <Button type="submit" disabled={isPending}>
-                    <TbSend size={20} />
-                </Button>
+                <div className="flex flex-row justify-end gap-2">
+                    <FormField
+                        control={form.control}
+                        name="media"
+                        render={({ field }) => (
+                            <FormItem>
+                                <FormControl>
+                                    <CommentImageInput value={field.value} onChange={field.onChange} />
+                                </FormControl>
+                                <FormMessage />
+                            </FormItem>
+                        )}
+                    />
+                    <Button type="submit" disabled={isPending}>
+                        <TbSend size={20} />
+                    </Button>
+                </div>
             </form>
         </Form>
     )
