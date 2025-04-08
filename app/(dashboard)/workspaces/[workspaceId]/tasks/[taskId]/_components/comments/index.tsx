@@ -17,7 +17,7 @@ function Comments({ task }: CommentsProps) {
             <div className="flex flex-col gap-4 flex-1 overflow-y-scroll px-6">
                 <CommentsList task={task} />
             </div>
-            <div className='flex flex-row items-center h-40  py-4 px-6'>
+            <div className='flex flex-row items-center h-40  py-4 px-6 bg-background'>
                 <CommentForm task={task} />
             </div>
         </div>

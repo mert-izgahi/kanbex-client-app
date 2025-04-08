@@ -27,7 +27,7 @@ async function page({ params }: PageProps) {
   if (!workspace) return redirect("/workspaces");
   return (
     <div className="w-full flex flex-row h-[calc(100vh-64px)]">
-      <div className="flex-1 flex flex-col p-6 h-full overflow-scroll">
+      <div className="flex-1 flex flex-col gap-y-12 p-6 h-full overflow-scroll">
         <div className="bg-background py-4 px-6 rounded-sm border border-border">
           <TaskDetails
             task={task}
@@ -38,7 +38,9 @@ async function page({ params }: PageProps) {
           />
         </div>
 
-        <Comments task={task} />
+        <div className="bg-background py-4 px-6 rounded-sm border border-border">
+          <Comments task={task} />
+        </div>
       </div>
       <div className="flex w-full md:w-1/4 p-6 border-l border-border">
         <ProjectDetails projectId={task?.project?._id} />
